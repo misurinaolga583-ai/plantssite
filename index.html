@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>НейроСад · светлая версия</title>
-    <!-- Font Awesome 6 (free) для иконок -->
+    <title>НейроСад · тёплая зелень</title>
+    <!-- Font Awesome 6 (free) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         * {
@@ -15,617 +15,567 @@
         }
 
         body {
-            min-height: 100vh;
-            background: linear-gradient(145deg, #f0fff0 0%, #d4f0d4 100%);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1.5rem;
+            background: #f7f5e8; /* тёплый кремовый фон */
+            color: #2f4d3a;
         }
 
-        .glass-panel {
-            max-width: 1300px;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(80, 160, 120, 0.3);
-            border-radius: 2.5rem;
-            padding: 2rem 2.5rem;
-            box-shadow: 0 20px 40px rgba(0, 80, 50, 0.15), 0 0 20px rgba(100, 200, 150, 0.3);
-        }
-
-        /* Заголовок */
-        .header {
+        /* навигация */
+        .navbar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            border-bottom: 1px dashed #a0d0b0;
-            padding-bottom: 1rem;
+            padding: 1.2rem 3rem;
+            background: rgba(235, 240, 215, 0.8);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid #b5c9a0;
         }
 
-        .header h1 {
-            font-size: 2.2rem;
+        .logo {
+            font-size: 1.8rem;
             font-weight: 400;
-            background: linear-gradient(135deg, #2f7a5a, #006644);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: 2px;
+            color: #4f6b3a;
+        }
+        .logo i {
+            color: #7fa86a;
+            margin-right: 8px;
         }
 
-        .header h1 i {
-            margin-right: 10px;
-            color: #2f8e6b;
-            text-shadow: 0 0 10px #b0ffd0;
-        }
-
-        .neuro-badge {
+        .nav-links {
             display: flex;
-            gap: 1.5rem;
-            color: #2f5e4a;
-            font-size: 0.95rem;
+            gap: 2rem;
+            color: #3f5c32;
+            font-weight: 500;
+        }
+        .nav-links span {
+            cursor: default;
+        }
+        .nav-links i {
+            margin-right: 5px;
+            color: #7b9c6b;
         }
 
-        .neuro-badge span {
-            background: rgba(200, 240, 210, 0.6);
-            padding: 0.5rem 1.2rem;
-            border-radius: 40px;
-            border: 1px solid #6fab8c;
+        /* HERO СЕКЦИЯ с фоновой картинкой и текстом */
+        .hero {
+            position: relative;
+            height: 80vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?q=80&w=1965&auto=format&fit=crop'); /* тёплая зелень листьев */
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.7) saturate(1.2);
+            z-index: -2;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(145deg, rgba(90, 120, 60, 0.5), rgba(140, 170, 90, 0.3));
+            z-index: -1;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            padding: 2rem;
+            background: rgba(255, 255, 240, 0.15);
+            backdrop-filter: blur(6px);
+            border-radius: 3rem;
+            border: 1px solid rgba(255, 250, 210, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: 400;
+            text-shadow: 0 4px 15px #1f3f1f;
+            margin-bottom: 1rem;
+            color: #f9ffe6;
+        }
+        .hero-content p {
+            font-size: 1.4rem;
+            margin-bottom: 2.5rem;
+            color: #f0ffe0;
+        }
+        .hero-btn {
+            background: #b5d3a0;
+            border: none;
+            color: #2b4a25;
+            padding: 1rem 3rem;
+            border-radius: 60px;
+            font-size: 1.4rem;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: 0.2s;
+            border: 1px solid #e5ffc7;
+        }
+        .hero-btn:hover {
+            background: #c8e3b3;
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px #3b5a2b;
+        }
+
+        /* секции */
+        .section {
+            padding: 4rem 3rem;
+        }
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #4b6e3a;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            border-bottom: 2px dashed #bdd8a8;
+            padding-bottom: 0.5rem;
+        }
+        .section-title i {
+            margin-right: 15px;
+            color: #7ca065;
+        }
+
+        /* слайдер / карусель растений */
+        .slider-container {
+            position: relative;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .plant-slider {
+            display: flex;
+            gap: 1.8rem;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            padding: 1rem 0.5rem 2rem;
+            scrollbar-width: thin;
+            scrollbar-color: #aac292 #e2f0d0;
+        }
+        .plant-slider::-webkit-scrollbar {
+            height: 8px;
+        }
+        .plant-slider::-webkit-scrollbar-thumb {
+            background: #aac292;
+            border-radius: 20px;
+        }
+        .plant-slider::-webkit-scrollbar-track {
+            background: #e2f0d0;
+        }
+
+        .plant-card {
+            flex: 0 0 280px;
+            background: rgba(255, 250, 235, 0.9);
             backdrop-filter: blur(4px);
-            color: #1d4e3a;
+            border-radius: 2rem;
+            padding: 1.5rem 1rem;
+            border: 1px solid #c3dbb0;
+            box-shadow: 0 15px 25px rgba(100, 130, 70, 0.2);
+            transition: 0.2s;
+            text-align: center;
+        }
+        .plant-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 30px #96b585;
+        }
+        .plant-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 1.5rem;
+            margin-bottom: 1rem;
+            border: 2px solid #bcdba0;
+        }
+        .plant-card h4 {
+            font-size: 1.4rem;
+            color: #3d6330;
+            margin-bottom: 0.5rem;
+        }
+        .plant-card p {
+            color: #5a7950;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        .plant-tag {
+            background: #dcedc4;
+            display: inline-block;
+            padding: 0.3rem 1.2rem;
+            border-radius: 30px;
+            color: #2f582b;
+            font-size: 0.9rem;
         }
 
-        /* Секция нейроинтерфейсов (будущее ввода) */
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(210, 235, 180, 0.9);
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #3f6230;
+            box-shadow: 0 5px 15px #7f9f6b;
+            z-index: 10;
+            transition: 0.2s;
+        }
+        .slider-btn:hover {
+            background: #c2e0aa;
+            box-shadow: 0 8px 20px #5d8747;
+        }
+        .slider-btn.left {
+            left: -20px;
+        }
+        .slider-btn.right {
+            right: -20px;
+        }
+
+        /* нейро-карточки (теплее) */
         .neuro-demo {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
+            gap: 2rem;
             justify-content: center;
+            margin: 3rem 0;
         }
-
         .neuro-card {
-            flex: 1 1 220px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 2rem;
-            padding: 1.5rem 1rem;
-            border: 1px solid #b0e0c0;
-            box-shadow: 0 8px 20px rgba(80, 140, 100, 0.15);
-            backdrop-filter: blur(5px);
+            flex: 1 1 240px;
+            background: #f2fbe6;
+            border-radius: 2.5rem;
+            padding: 2rem 1rem;
+            border: 1px solid #bedba8;
+            box-shadow: 0 15px 25px #b7cf9e;
             text-align: center;
             transition: 0.2s;
             cursor: pointer;
         }
-
         .neuro-card:hover {
-            box-shadow: 0 0 25px #88ddb0;
-            border-color: #5faf85;
-            background: rgba(255, 255, 255, 0.9);
+            background: #eafad7;
+            border-color: #9bc07a;
         }
-
         .neuro-card .icon {
             font-size: 3rem;
-            margin-bottom: 0.8rem;
-            color: #2d6b4c;
+            color: #618c45;
         }
-
         .neuro-card h3 {
-            color: #1b543b;
+            color: #436838;
             font-weight: 400;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
+            margin: 0.8rem 0;
         }
-
-        /* анимация взгляда */
         .gaze-tracker {
-            width: 120px;
-            height: 120px;
-            margin: 0 auto 1rem;
-            background: #e0ffe8;
+            width: 110px; height: 110px;
+            background: #e2f0cf;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
-            border: 2px solid #3ca36b;
-            box-shadow: 0 0 15px #9fdfb5;
+            margin: 0 auto 1rem;
+            border: 3px solid #9fc080;
         }
-
         .pupil {
-            width: 30px;
-            height: 30px;
-            background: radial-gradient(circle at 30% 30%, #b8ffcf, #2b8c54);
+            width: 30px; height: 30px;
+            background: radial-gradient(circle at 30% 30%, #ffe5b4, #8bb56a);
             border-radius: 50%;
             animation: movePupil 3s infinite alternate ease-in-out;
         }
-
         @keyframes movePupil {
-            0% { transform: translate(-20px, -10px); }
-            25% { transform: translate(20px, -15px); }
-            50% { transform: translate(15px, 20px); }
-            75% { transform: translate(-15px, 15px); }
-            100% { transform: translate(-20px, -10px); }
+            0% { transform: translate(-15px, -8px); }
+            30% { transform: translate(12px, -12px); }
+            70% { transform: translate(10px, 15px); }
+            100% { transform: translate(-18px, 8px); }
         }
-
-        /* анимация жеста */
         .gesture-animation {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
             font-size: 2.5rem;
             margin: 0.5rem 0;
-            color: #2e7d56;
         }
-
-        .hand {
-            animation: wave 1.8s infinite;
-            transform-origin: bottom;
-            display: inline-block;
-        }
-
+        .hand { animation: wave 1.8s infinite; display: inline-block; }
         @keyframes wave {
             0% { transform: rotate(0deg); }
             25% { transform: rotate(20deg); }
             50% { transform: rotate(0deg); }
             75% { transform: rotate(-10deg); }
-            100% { transform: rotate(0deg); }
         }
 
-        .gesture-animation span {
-            filter: drop-shadow(0 0 6px #9fdfb5);
-        }
-
-        /* основная рабочая область (загрузка + результат) */
-        .workspace {
+        /* блок распознавания (загрузка и результат) */
+        .recognition-row {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            margin-top: 1.5rem;
+            gap: 2.5rem;
+            background: #f1f7e5;
+            border-radius: 3rem;
+            padding: 2.5rem;
+            border: 1px solid #cbdfb2;
+            box-shadow: 0 20px 30px rgba(120, 150, 80, 0.2);
+            margin-top: 3rem;
         }
-
-        .upload-column {
-            background: rgba(255, 255, 255, 0.6);
+        .upload-col {
+            background: rgba(255, 255, 240, 0.7);
             border-radius: 2rem;
-            padding: 2rem 1.5rem;
-            border: 1px solid #c0e0d0;
-            box-shadow: 0 10px 20px rgba(0, 60, 30, 0.1);
+            padding: 2rem;
         }
-
-        .upload-column h2 {
-            color: #1f6744;
-            font-weight: 400;
-            font-size: 1.6rem;
+        .upload-col h2 {
+            color: #517a3f;
+            font-size: 2rem;
+            font-weight: 300;
             margin-bottom: 1.5rem;
         }
-
-        .upload-column h2 i {
-            margin-right: 8px;
-            color: #3f9b6b;
-        }
-
-        .button-group {
+        .btn-group {
             display: flex;
             flex-wrap: wrap;
             gap: 1rem;
-            margin: 1.5rem 0 1rem;
+            margin: 1.5rem 0;
         }
-
         .btn {
-            background: white;
-            border: 1px solid #3ca36b;
-            color: #1e6040;
-            padding: 0.9rem 1.8rem;
+            background: #dceecb;
+            border: 1px solid #8bb46c;
+            color: #2a572a;
+            padding: 0.8rem 1.6rem;
             border-radius: 50px;
             font-size: 1rem;
-            font-weight: 500;
             cursor: pointer;
-            backdrop-filter: blur(8px);
             transition: 0.2s;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 8px rgba(80, 140, 100, 0.2);
         }
-
-        .btn i {
-            font-size: 1.2rem;
-            color: #2d7a56;
-        }
-
+        .btn i { color: #4f8040; }
         .btn:hover {
-            background: #e0ffed;
-            border-color: #1d794c;
-            box-shadow: 0 8px 16px rgba(50, 120, 80, 0.3);
-            color: #0b422b;
+            background: #c7e3b0;
+            border-color: #629344;
         }
 
-        .note {
-            font-size: 0.85rem;
-            color: #3d6953;
-            margin-top: 2rem;
-            padding: 0.5rem;
-            border-left: 3px solid #3ca36b;
-            background: rgba(210, 245, 220, 0.5);
-            border-radius: 0 1rem 1rem 0;
-        }
-
-        /* зона результата и скелетона */
-        .result-column {
-            background: rgba(255, 255, 255, 0.7);
+        .result-col {
+            background: rgba(250, 255, 235, 0.8);
             border-radius: 2rem;
-            padding: 2rem 1.5rem;
-            border: 1px solid #b8e0cc;
+            padding: 2rem;
             min-height: 380px;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 10px 20px rgba(0, 60, 20, 0.1);
         }
-
         .skeleton {
-            width: 100%;
-            animation: shimmer 1.5s infinite linear;
-            background: linear-gradient(90deg, #e0f0e4 25%, #f0fff4 50%, #e0f0e4 75%);
-            background-size: 200% 100%;
+            animation: pulse 1.5s infinite;
+            background: #d4e8c0;
             border-radius: 1.8rem;
-            padding: 1.2rem;
+            padding: 1rem;
         }
-
-        @keyframes shimmer {
-            0% { background-position: 200% 0; }
-            100% { background-position: -200% 0; }
-        }
-
-        .skeleton-img {
-            width: 100%;
-            height: 180px;
-            background: #c8e0d0;
-            border-radius: 1.5rem;
-            margin-bottom: 1rem;
-        }
-
-        .skeleton-line {
-            height: 24px;
-            width: 80%;
-            background: #c8e0d0;
-            border-radius: 20px;
-            margin: 15px 0;
-        }
-
-        .skeleton-line.short {
-            width: 55%;
-        }
-
-        .result-card {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .result-card.hidden, .skeleton.hidden {
-            display: none;
-        }
-
+        .skeleton-img { height: 160px; background: #bcd89c; border-radius: 1.5rem; margin-bottom: 1rem; }
+        .skeleton-line { height: 24px; width: 80%; background: #bcd89c; border-radius: 20px; margin: 15px 0; }
+        .hidden { display: none; }
         #result-img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            border-radius: 1.8rem;
-            border: 2px solid #5bbd8c;
-            box-shadow: 0 0 20px rgba(50, 150, 100, 0.3);
-            margin-bottom: 1.2rem;
-            background: #daf5e6;
+            width: 100%; height: 200px; object-fit: cover; border-radius: 1.5rem;
+            border: 2px solid #9fc27e; margin-bottom: 1rem;
         }
-
-        .plant-title {
-            font-size: 2rem;
-            font-weight: 400;
-            color: #1d5b3a;
-            margin-bottom: 0.3rem;
-            text-shadow: 0 2px 5px rgba(150, 220, 170, 0.5);
-        }
-
-        .plant-desc {
-            color: #2b5d45;
-            line-height: 1.5;
-            margin: 0.5rem 0 1.2rem;
-            font-size: 1rem;
-        }
-
+        .plant-title { font-size: 2rem; color: #3f6933; }
+        .plant-desc { color: #4f7143; }
         .add-btn {
-            background: white;
-            border: 2px solid #3ca36b;
-            color: #1e6742;
-            padding: 0.8rem 1.8rem;
-            border-radius: 40px;
-            font-size: 1.2rem;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            align-self: flex-start;
-            transition: 0.2s;
-            backdrop-filter: blur(5px);
-            margin-top: auto;
-            box-shadow: 0 4px 8px rgba(0, 60, 20, 0.1);
+            background: #c7e3b0; border: 2px solid #79a85c; color: #27522b;
+            padding: 0.7rem 1.8rem; border-radius: 40px; font-weight: 600;
+            cursor: pointer; display: inline-flex; align-items: center; gap: 8px; margin-top: auto;
         }
-
-        .add-btn i {
-            font-size: 1.6rem;
-            color: #3ca36b;
-        }
-
-        .add-btn:hover {
-            background: #daf5e6;
-            border-color: #1b874b;
-            color: #0a3b25;
-            box-shadow: 0 8px 16px rgba(30, 120, 70, 0.2);
-        }
-
-        /* сообщение о лёгкой смене картинки */
         .info-chip {
-            background: #e0f3e8;
-            color: #1d6040;
-            border-radius: 30px;
-            padding: 0.4rem 1rem;
-            font-size: 0.8rem;
-            border: 1px dashed #7fbf9f;
-            margin-top: 0.7rem;
-            text-align: center;
+            background: #e1efd1; color: #436635; border-radius: 30px; padding: 0.4rem 1rem;
+            border: 1px dashed #8fb073; margin-top: 1rem; font-size: 0.85rem;
         }
-
-        .info-chip i {
-            margin-right: 5px;
-            color: #328f5e;
+        footer {
+            text-align: center; padding: 2rem; color: #5b7d4c;
+            border-top: 1px solid #cadeb2;
         }
-
-        /* подсказка начальная */
-        #startHint {
-            color: #4f7b65;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        /* адаптивность */
         @media (max-width: 900px) {
-            .workspace {
-                grid-template-columns: 1fr;
-            }
-            .glass-panel {
-                padding: 1.5rem;
-            }
+            .recognition-row { grid-template-columns: 1fr; }
+            .navbar { padding: 1rem; flex-wrap: wrap; }
+            .hero-content h1 { font-size: 2.5rem; }
+            .slider-btn { display: none; }
         }
     </style>
 </head>
 <body>
-    <div class="glass-panel">
-        <!-- шапка с нейро-акцентами (светлая) -->
-        <div class="header">
-            <h1><i class="fas fa-leaf"></i> НейроСад · распознавание</h1>
-            <div class="neuro-badge">
-                <span><i class="fas fa-eye"></i> управление взглядом</span>
-                <span><i class="fas fa-hand-peace"></i> нейрожесты</span>
-                <span><i class="fas fa-brain"></i> интерфейс будущего</span>
-            </div>
+    <nav class="navbar">
+        <div class="logo"><i class="fas fa-seedling"></i> НейроСад</div>
+        <div class="nav-links">
+            <span><i class="fas fa-leaf"></i> растения</span>
+            <span><i class="fas fa-eye"></i> нейровзгляд</span>
+            <span><i class="fas fa-hand-peace"></i> жесты</span>
+            <span><i class="fas fa-cloud-sun"></i> мой сад</span>
         </div>
+    </nav>
 
-        <!-- блок демонстрации нейро-ввода (кликабельно — триггерит загрузку) -->
+    <!-- HERO с фоновой картинкой и текстом -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Растения будущего</h1>
+            <p>Распознавание взглядом, жестами и нейроинтерфейсами</p>
+            <button class="hero-btn" onclick="document.getElementById('recognize-section').scrollIntoView({behavior:'smooth'})"><i class="fas fa-camera"></i> Попробовать</button>
+        </div>
+    </section>
+
+    <!-- СЛАЙДЕР с популярными растениями -->
+    <section class="section">
+        <h2 class="section-title"><i class="fas fa-images"></i> популярные растения</h2>
+        <div class="slider-container">
+            <button class="slider-btn left" id="slideLeft"><i class="fas fa-chevron-left"></i></button>
+            <div class="plant-slider" id="plantSlider">
+                <!-- карточки (изображения легко меняются через инспектор, все img) -->
+                <div class="plant-card"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 150'%3E%3Crect width='200' height='150' fill='%23d2e6bc'/%3E%3Ccircle cx='100' cy='75' r='50' fill='%2379b06d'/%3E%3Ctext x='60' y='90' fill='%233e642b' font-size='22' font-family='sans-serif'%3E🌿%3C/text%3E%3C/svg%3E" alt="Монстера"><h4>Монстера</h4><p>Крупные листья</p><span class="plant-tag">тропическое</span></div>
+                <div class="plant-card"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 150'%3E%3Crect width='200' height='150' fill='%23dbeec7'/%3E%3Cpath d='M70,70 Q100,30 140,50 Q160,90 120,110 Q90,130 60,100 Q40,80 70,70' fill='%23b5d38c'/%3E%3C/svg%3E" alt="Спатифиллум"><h4>Спатифиллум</h4><p>Белые цветы</p><span class="plant-tag">неприхотливое</span></div>
+                <div class="plant-card"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 150'%3E%3Crect width='200' height='150' fill='%23c7e0b0'/%3E%3Cpolygon points='100,40 140,110 60,110' fill='%23659748'/%3E%3C/svg%3E" alt="Сансевиерия"><h4>Сансевиерия</h4><p>Очищает воздух</p><span class="plant-tag">суккулент</span></div>
+                <div class="plant-card"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 150'%3E%3Crect width='200' height='150' fill='%23d4efc2'/%3E%3Cpath d='M50,80 Q90,20 150,50 Q170,100 130,130 Q80,150 40,110 Q20,70 50,80' fill='%238fc97b'/%3E%3C/svg%3E" alt="Фикус"><h4>Фикус</h4><p>Вечнозелёный</p><span class="plant-tag">декоративный</span></div>
+                <div class="plant-card"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 150'%3E%3Crect width='200' height='150' fill='%23cae3b1'/%3E%3Cpath d='M110,40 Q150,30 170,80 Q180,120 130,130 Q80,140 60,90 Q50,50 110,40' fill='%239fc97c'/%3E%3C/svg%3E" alt="Замиокулькас"><h4>Замиокулькас</h4><p>Долларовое дерево</p><span class="plant-tag">теневыносливое</span></div>
+            </div>
+            <button class="slider-btn right" id="slideRight"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- НЕЙРОИНТЕРФЕЙСЫ (теплые карточки) -->
+    <section class="section" style="padding-top:0;">
+        <h2 class="section-title"><i class="fas fa-brain"></i> интерфейсы будущего</h2>
         <div class="neuro-demo">
-            <div class="neuro-card" id="gazeNeuroCard">
+            <div class="neuro-card" id="gazeNeuro">
                 <div class="icon"><i class="fas fa-eye"></i></div>
-                <h3>Взгляд · iTrack</h3>
-                <div class="gaze-tracker">
-                    <div class="pupil"></div>
-                </div>
-                <p style="color:#2d6b4c; font-size:0.9rem;">«посмотрите, чтобы загрузить»</p>
+                <h3>Взгляд</h3>
+                <div class="gaze-tracker"><div class="pupil"></div></div>
+                <p style="color:#567946;">выберите растение глазами</p>
             </div>
-            <div class="neuro-card" id="gestureNeuroCard">
+            <div class="neuro-card" id="gestureNeuro">
                 <div class="icon"><i class="fas fa-hand-peace"></i></div>
-                <h3>Жесты · GestureNet</h3>
-                <div class="gesture-animation">
-                    <span class="hand">🖐️</span>
-                    <span>➡️</span>
-                    <span>🤏</span>
-                </div>
-                <p style="color:#2d6b4c; font-size:0.9rem;">«свайп в воздухе»</p>
+                <h3>Жесты</h3>
+                <div class="gesture-animation"><span class="hand">🖐️</span> <span>🤏</span></div>
+                <p style="color:#567946;">управление движением</p>
             </div>
-            <div class="neuro-card" id="voiceNeuroCard" style="cursor:default;">
+            <div class="neuro-card" id="voiceNeuro">
                 <div class="icon"><i class="fas fa-microphone-alt"></i></div>
-                <h3>Голос · ( soon )</h3>
-                <i class="fas fa-wave-square" style="font-size: 2rem; color: #2e8b5e;"></i>
-                <p style="color:#2d6b4c; font-size:0.9rem;">«скажите название»</p>
+                <h3>Голос</h3>
+                <i class="fas fa-wave-square" style="font-size:3rem; color:#7aa864;"></i>
+                <p style="color:#567946;">скажите «распознай»</p>
             </div>
         </div>
+    </section>
 
-        <!-- основное рабочее пространство: загрузка и результат -->
-        <div class="workspace">
-            <!-- левая колонка: интерфейс загрузки фото -->
-            <div class="upload-column">
-                <h2><i class="fas fa-cloud-upload-alt"></i> загрузка фото</h2>
-                <div style="text-align: center; margin-bottom: 1rem;">
-                    <i class="fas fa-seedling" style="font-size: 3rem; color: #57b184; opacity: 0.8;"></i>
-                </div>
-                <div class="button-group">
-                    <button class="btn" id="uploadButton"><i class="fas fa-camera"></i> Выбрать фото</button>
+    <!-- БЛОК РАСПОЗНАВАНИЯ (ЗАГРУЗКА + РЕЗУЛЬТАТ) -->
+    <section class="section" id="recognize-section">
+        <div class="recognition-row">
+            <div class="upload-col">
+                <h2><i class="fas fa-cloud-upload-alt"></i> загрузите фото</h2>
+                <div style="text-align:center;"><i class="fas fa-camera-retro" style="font-size:3rem; color:#84a86c;"></i></div>
+                <div class="btn-group">
+                    <button class="btn" id="uploadBtn"><i class="fas fa-images"></i> Выбрать фото</button>
                     <input type="file" id="fileInput" accept="image/*" hidden>
-                    <button class="btn" id="gazeDemoButton"><i class="fas fa-eye"></i> Нейровзгляд (демо)</button>
-                    <button class="btn" id="gestureDemoButton"><i class="fas fa-hand-peace"></i> Нейрожест (демо)</button>
+                    <button class="btn" id="gazeDemoBtn"><i class="fas fa-eye"></i> Нейровзгляд</button>
+                    <button class="btn" id="gestureDemoBtn"><i class="fas fa-hand-peace"></i> Нейрожест</button>
                 </div>
-                <div class="info-chip">
-                    <i class="fas fa-image"></i> легко меняйте картинку: откройте инспектор и замените src у &lt;img id="result-img"&gt;
-                </div>
-                <div class="note">
-                    <i class="fas fa-robot"></i> нейроинтерфейс имитирует распознавание по взгляду/жесту. Нажмите на карточку выше или кнопки — запустится загрузка скелетона.
-                </div>
+                <div class="info-chip"><i class="fas fa-image"></i> легко меняйте картинку: инспектор → измените src у &lt;img id="result-img"&gt;</div>
+                <p style="margin-top:1rem; color:#5b7d4c;"><i class="fas fa-robot"></i> нажмите на карточки нейро или кнопки — увидите скелетон и результат.</p>
             </div>
-
-            <!-- правая колонка: скелетон + результат -->
-            <div class="result-column">
-                <!-- скелетон (изначально скрыт) -->
+            <div class="result-col">
                 <div id="skeletonLoader" class="skeleton hidden">
                     <div class="skeleton-img"></div>
                     <div class="skeleton-line"></div>
                     <div class="skeleton-line short"></div>
-                    <div class="skeleton-line" style="width:40%"></div>
                 </div>
-
-                <!-- карточка результата (изначально скрыта, пока нет распознавания) -->
                 <div id="resultCard" class="result-card hidden">
-                    <!-- именно этот тег img можно легко заменить через инспектор -->
-                    <img id="result-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 150'%3E%3Crect width='200' height='150' fill='%23d0f0da'/%3E%3Ctext x='20' y='85' font-size='18' fill='%23358b5a' font-family='monospace'%3E🌿 загрузите фото%3C/text%3E%3C/svg%3E"
-                         alt="растение">
-                    <h3 class="plant-title" id="plantName">Монстера деликатесная</h3>
-                    <p class="plant-desc" id="plantDesc">Крупные резные листья, популярное комнатное растение. Легко адаптируется к полутени.</p>
-                    <button class="add-btn" id="addToGardenBtn"><i class="fas fa-plus-circle"></i> В мой сад</button>
+                    <img id="result-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23d5ecbc'/%3E%3Ctext x='40' y='120' fill='%233d763d' font-size='28'%3E🌱 загрузите%3C/text%3E%3C/svg%3E" alt="растение">
+                    <h3 class="plant-title" id="plantName">Монстера</h3>
+                    <p class="plant-desc" id="plantDesc">Крупные листья, любит полутень.</p>
+                    <button class="add-btn" id="addToGarden"><i class="fas fa-plus-circle"></i> В мой сад</button>
                 </div>
-
-                <!-- дополнительная информация (отображается когда нет ни скелетона, ни карточки) -->
-                <div id="startHint" style="color: #4f7b65; text-align: center; padding: 2rem;">
-                    <i class="fas fa-hand-point-up" style="font-size: 2.2rem; margin-bottom: 0.5rem; display: block;"></i>
-                    <span>загрузите фото или используйте нейровзгляд/жест</span>
-                </div>
+                <div id="startHint" style="color:#678f52; text-align:center; padding:2rem;"><i class="fas fa-hand-point-up"></i> загрузите фото</div>
             </div>
         </div>
-    </div>
+    </section>
+
+    <footer>
+        <i class="fas fa-leaf"></i> НейроСад · тёплый зелёный · 2026
+    </footer>
 
     <script>
         (function() {
-            // элементы DOM
+            // элементы
             const fileInput = document.getElementById('fileInput');
-            const uploadBtn = document.getElementById('uploadButton');
-            const gazeDemo = document.getElementById('gazeDemoButton');
-            const gestureDemo = document.getElementById('gestureDemoButton');
-            const gazeNeuro = document.getElementById('gazeNeuroCard');
-            const gestureNeuro = document.getElementById('gestureNeuroCard');
+            const uploadBtn = document.getElementById('uploadBtn');
+            const gazeDemoBtn = document.getElementById('gazeDemoBtn');
+            const gestureDemoBtn = document.getElementById('gestureDemoBtn');
+            const gazeNeuro = document.getElementById('gazeNeuro');
+            const gestureNeuro = document.getElementById('gestureNeuro');
+            const voiceNeuro = document.getElementById('voiceNeuro'); // неактивный пока
             const skeleton = document.getElementById('skeletonLoader');
             const resultCard = document.getElementById('resultCard');
             const resultImg = document.getElementById('result-img');
             const plantName = document.getElementById('plantName');
             const plantDesc = document.getElementById('plantDesc');
-            const addBtn = document.getElementById('addToGardenBtn');
+            const addBtn = document.getElementById('addToGarden');
             const startHint = document.getElementById('startHint');
 
-            // данные растения (могут быть разные, но для демо используем одно)
-            const demoPlant = {
-                name: 'Монстера деликатесная',
-                desc: 'Крупные резные листья, популярное комнатное растение. Легко адаптируется к полутени.',
-                altName: 'Спатифиллум',
-                altDesc: 'Неприхотливое растение с белыми цветками-парусами. Очищает воздух.'
-            };
+            // слайдер
+            const slider = document.getElementById('plantSlider');
+            document.getElementById('slideLeft').addEventListener('click', () => slider.scrollBy({left: -300, behavior: 'smooth'}));
+            document.getElementById('slideRight').addEventListener('click', () => slider.scrollBy({left: 300, behavior: 'smooth'}));
 
-            // таймер для симуляции загрузки
             let loadingTimer = null;
-
-            // утилита: показать скелетон, скрыть результат и подсказку
-            function showSkeletonAndHideResult() {
-                if (startHint) startHint.style.display = 'none';
+            function showSkeleton() {
+                startHint.style.display = 'none';
                 skeleton.classList.remove('hidden');
                 resultCard.classList.add('hidden');
             }
-
-            // завершение загрузки (показываем карточку с текущим изображением)
-            function finishLoading(plantVariant = 'monstera') {
+            function finishLoading(variant = 'monstera') {
                 skeleton.classList.add('hidden');
-                // немного разнообразия для демо
-                if (plantVariant === 'monstera') {
-                    plantName.textContent = demoPlant.name;
-                    plantDesc.textContent = demoPlant.desc;
+                if (variant === 'monstera') {
+                    plantName.textContent = 'Монстера деликатесная';
+                    plantDesc.textContent = 'Крупные резные листья, популярное комнатное растение.';
                 } else {
-                    plantName.textContent = demoPlant.altName;
-                    plantDesc.textContent = demoPlant.altDesc;
+                    plantName.textContent = 'Спатифиллум';
+                    plantDesc.textContent = 'Неприхотливое растение с белыми цветками-парусами.';
                 }
                 resultCard.classList.remove('hidden');
             }
-
-            // старт процесса распознавания (устанавливаем картинку и запускаем таймер)
-            function startRecognition(imageSrc, useAltPlant = false) {
-                // если уже был таймер, сбрасываем
+            function startRecognition(imgSrc, altPlant = false) {
                 if (loadingTimer) clearTimeout(loadingTimer);
-
-                // устанавливаем новое изображение
-                if (imageSrc) {
-                    resultImg.src = imageSrc;
-                }
-
-                showSkeletonAndHideResult();
-
-                // симулируем задержку распознавания 1.8 сек
-                loadingTimer = setTimeout(() => {
-                    finishLoading(useAltPlant ? 'spath' : 'monstera');
-                    loadingTimer = null;
-                }, 1800);
+                if (imgSrc) resultImg.src = imgSrc;
+                showSkeleton();
+                loadingTimer = setTimeout(() => finishLoading(altPlant ? 'spath' : 'monstera'), 1600);
             }
 
-            // обработка файла из input
-            function handleFileUpload(file) {
-                if (!file) return;
-                const reader = new FileReader();
-                reader.onload = (e) => {
-                    // при загрузке файла используем основное растение
-                    startRecognition(e.target.result, false);
-                };
-                reader.readAsDataURL(file);
-            }
+            // демо картинки (тёплые тона)
+            const defaultImg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23c7e3b0'/%3E%3Cpath d='M130,70 Q170,30 210,60 Q220,110 170,130 Q120,150 80,110 Q50,70 90,40 Q110,30 130,70' fill='%23669c4a'/%3E%3C/svg%3E";
+            const altImg = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23daefc4'/%3E%3Cpath d='M160,60 Q200,40 230,80 Q250,130 190,150 Q200,190 130,180 Q60,180 70,120 Q50,70 110,60 Q130,40 160,60' fill='%23e6d48e'/%3E%3C/svg%3E";
 
-            // демо-картинка (зеленый лист в формате SVG) — светлая версия
-            const defaultPlantSVG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23b8e6c7'/%3E%3Cpath d='M130 70 Q160 30 200 40 Q220 70 190 100 Q210 140 150 130 Q100 140 80 100 Q60 70 90 40 Q110 30 130 70' fill='%233bb56e' opacity='0.9'/%3E%3Ctext x='40' y='170' fill='%231d7547' font-size='18' font-family='sans-serif'%3E%3C!%5BCDATA[demol leaf%5D%3E%3C/text%3E%3C/svg%3E";
-            // альтернативное растение (другой лист) — светлая версия
-            const altPlantSVG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'%3E%3Crect width='300' height='200' fill='%23c2edcf'/%3E%3Cpath d='M160 50 Q200 30 230 70 Q250 120 190 140 Q200 180 130 170 Q60 170 70 110 Q50 60 110 50 Q130 30 160 50' fill='%23f0e68c' opacity='0.9'/%3E%3Ctext x='40' y='170' fill='%23317954' font-size='18'%3Eспатифиллум%3C/text%3E%3C/svg%3E";
-
-            // ---- обработчики событий ----
-
-            // кнопка "Выбрать фото"
-            uploadBtn.addEventListener('click', () => {
-                fileInput.click();
-            });
-
+            uploadBtn.addEventListener('click', () => fileInput.click());
             fileInput.addEventListener('change', (e) => {
                 const file = e.target.files[0];
                 if (file) {
-                    handleFileUpload(file);
+                    const reader = new FileReader();
+                    reader.onload = (ev) => startRecognition(ev.target.result, false);
+                    reader.readAsDataURL(file);
                 }
-                fileInput.value = ''; // чтобы можно было загрузить тот же файл повторно
+                fileInput.value = '';
             });
 
-            // демо-нейровзгляд (кнопка)
-            gazeDemo.addEventListener('click', () => {
-                startRecognition(defaultPlantSVG, false); // монстера
-            });
+            gazeDemoBtn.addEventListener('click', () => startRecognition(defaultImg, false));
+            gestureDemoBtn.addEventListener('click', () => startRecognition(altImg, true));
+            gazeNeuro.addEventListener('click', () => startRecognition(defaultImg, false));
+            gestureNeuro.addEventListener('click', () => startRecognition(altImg, true));
+            voiceNeuro.addEventListener('click', () => alert('🔊 голосовой интерфейс в разработке'));
 
-            // демо-нейрожест (кнопка)
-            gestureDemo.addEventListener('click', () => {
-                startRecognition(altPlantSVG, true); // спатифиллум
-            });
-
-            // клик по нейрокарточке "Взгляд"
-            gazeNeuro.addEventListener('click', () => {
-                startRecognition(defaultPlantSVG, false);
-            });
-
-            // клик по нейрокарточке "Жесты"
-            gestureNeuro.addEventListener('click', () => {
-                startRecognition(altPlantSVG, true);
-            });
-
-            // добавление в "Мой сад"
             addBtn.addEventListener('click', () => {
-                alert('🌱 Растение добавлено в «Мой сад» (симуляция)');
-                // можно слегка изменить иконку
-                const icon = addBtn.querySelector('i');
-                if (icon) {
-                    icon.classList.remove('fa-plus-circle');
-                    icon.classList.add('fa-check-circle');
-                    setTimeout(() => {
-                        icon.classList.remove('fa-check-circle');
-                        icon.classList.add('fa-plus-circle');
-                    }, 1000);
-                }
+                alert('🌱 добавлено в «Мой сад»');
+                let icon = addBtn.querySelector('i');
+                icon.classList.replace('fa-plus-circle', 'fa-check-circle');
+                setTimeout(() => icon.classList.replace('fa-check-circle', 'fa-plus-circle'), 1000);
             });
 
-            // начальное состояние: спрятать скелетон и результат, показать подсказку
+            // начальное состояние
             skeleton.classList.add('hidden');
             resultCard.classList.add('hidden');
             startHint.style.display = 'block';
